@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,19 +10,37 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+
 </head>
 <body>
-<form #login = "ngForm" (ngSubmit) = "onClickSubmit()">
-<h1> Welcome to Demo Application</h1>
-  <input type = "text" name = "emailid" placeholder = "emailid" [(ngModel)]="employee.name" >
-  <br/>
-  <input type = "password" name = "password" placeholder = "passwd" [(ngModel)]="employee.password">
-  <br/>
-  <input type = "submit" value = "submit">
-<button routerLink="/register" >Register</button>
+<mat-card style="color: aliceblue ; background:-webkit-linear-gradient(59deg, #3A6073, #16222A);
+  font-size: x-large;font-family: 'Arial Black'" align="center"  >Welcome 
+</mat-card >
+<div   fxLayoutAlign="center center" fxFlexFill>
 
-</form>
-</body>
+<mat-card fxFlex="25">
+  <mat-toolbar style="background: -webkit-linear-gradient(59deg, #3A6073, #16222A); font-family: 'Arial Black'; color: white" >Login Form</mat-toolbar >
+  <form #login = "ngForm" (ngSubmit) = "onClickSubmit()" style=" font-size: medium"  fxFlexAlign="stretch" fxLayout="column">
+    <mat-form-field>
+      <input  type = "text" name = "emailid"  matInput placeholder = "emailid" [(ngModel)]="employee.name" >
+    </mat-form-field>
+    <mat-form-field >
+      <input type = "password" name = "password"  matInput placeholder = "password" [(ngModel)]="employee.password" >
+    </mat-form-field>
+
+    <button mat-raised-button type = "submit" class="btn btn-success" >Login
+
+    </button>
+    <button mat-raised-button style="background:#44BCDD;color: white"  >Register
+
+    </button>
+  </form>
+</mat-card>
+
+
+</div>
+<</body>
+
 </html>
 
 
