@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>AngularCrud</title>
+  <title>Social Media</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -16,16 +16,16 @@
 <mat-card style="color: aliceblue ; background:-webkit-linear-gradient(59deg, #3A6073, #16222A);
   font-size: x-large;font-family: 'Arial Black'" align="center"  >Welcome 
 </mat-card >
-<div   fxLayoutAlign="center center" fxFlexFill>
+<div   fxLayoutAlign="center center" fxFlexFill class="tool">
 
 <mat-card fxFlex="25">
-  <mat-toolbar style="background: -webkit-linear-gradient(59deg, #3A6073, #16222A); font-family: 'Arial Black'; color: white" >Login Form</mat-toolbar >
-  <form #login = "ngForm" (ngSubmit) = "onClickSubmit()" style=" font-size: medium"  fxFlexAlign="stretch" fxLayout="column">
+  <mat-toolbar  style="background: -webkit-linear-gradient(59deg, #3A6073, #16222A); font-family: 'Arial Black'; color: white" >Login Form</mat-toolbar >
+  <form  [formGroup]="formGroup" (submit)="onClickSubmit()" class="login-form" (ngSubmit) = "onClickSubmit()" style=" font-size: medium"  fxFlexAlign="stretch" fxLayout="column">
     <mat-form-field>
-      <input  type = "text" name = "emailid"  matInput placeholder = "emailid" [(ngModel)]="employee.name" >
+      <input  type = "text" name = "emailid"  matInput placeholder = "username" formControlName="username" >
     </mat-form-field>
     <mat-form-field >
-      <input type = "password" name = "password"  matInput placeholder = "password" [(ngModel)]="employee.password" >
+      <input type = "password" name = "password"  matInput placeholder = "password" formControlName="password" >
     </mat-form-field>
 
     <button mat-raised-button type = "submit" class="btn btn-success" >Login

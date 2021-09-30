@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Employee} from '../../models/Employee';
 import {LoginServiceService} from "./login-service.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-login',
@@ -8,15 +9,40 @@ import {LoginServiceService} from "./login-service.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  employee: Employee = new Employee();
+
   isValid: Boolean = false;
-  constructor(private service: LoginServiceService) {}
+  constructor(private service: LoginServiceService,formGroup: FormGroup) {
+    this.formGroup =formGroup;
+  }
 
-  ngOnInit(): void {}
+  formGroup :FormGroup ;
 
+  ngOnInit(): void {
+    this.initForm();
+  }
+
+  initForm(){
+    this.formGroup = new FormGroup({
+      username: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
+
+    })
+  }
   onClickSubmit() {
 
-    alert('Entered Email id : ' + this.employee.name + '..' + this.employee.password);
+    if(this.formGroup.valid) {
+      this.service.login(this.formGroup.value).subscribe(result=>{
+       if(result.success){
+         console.log(result);
+         alert(result.message);
+       }else{
+         alert(result.message);
+       }
+        }
+
+
+      );
+    }
   }
 
 
