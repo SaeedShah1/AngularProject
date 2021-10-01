@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LoginServiceService} from "./login-service.service";
 import {Employee} from "../../models/Employee";
+import {Router, Routes} from "@angular/router";
 
 
 @Component({
@@ -13,14 +14,25 @@ export class LoginComponent implements OnInit {
 
   isValid: Boolean = false;
   isChange: Boolean = false;
-  constructor(private service: LoginServiceService) {}
+
+  constructor(private service: LoginServiceService, private route: Router) {}
 
    employee: Employee = new Employee();
-
+    log: Boolean = false;
+    tryAgain: Boolean= false;
 
   ngOnInit(): void {}
-changeColor(){
-    this.isChange = true;
+
+   message(){
+    if(this.isChange==false){
+    this.isChange = true;}
+    else{
+      this.isChange= false;
+    }
+}
+
+recoverPassword(){
+
 }
   onClickSubmit() {
 
@@ -29,10 +41,18 @@ changeColor(){
        console.log(result);
        if(result.token){
          console.log("Successful")
+         this.route.navigateByUrl("/employee");
        }
         },error => {
 
-        console.log("Bad Credentials")
+        console.log("Bad Credentials");
+        if((this.employee.username==null || this.employee.username=='') ||
+          (this.employee.password==null || this.employee.password=='')
+        && (!this.log)) {
+          this.log = true;
+          this.message();
+        }
+
         }
 
 

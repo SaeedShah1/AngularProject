@@ -18,6 +18,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import {HttpClientModule,HttpClient} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { PasswrodrecoveryComponent } from './passwrodrecovery/passwrodrecovery.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 
@@ -29,7 +31,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PasswrodrecoveryComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MatToolbarModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
     BrowserAnimationsModule
   ],
   providers: [HttpClientModule,HttpClient],

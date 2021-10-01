@@ -6,6 +6,7 @@ import {EmployeeComponent} from './employee/employee.component';
 
 import {RegisterComponent} from './register/register.component';
 import {Routes} from '@angular/router';
+import {PasswrodrecoveryComponent} from "./passwrodrecovery/passwrodrecovery.component";
 
 const routes: Routes = [
   {
@@ -28,7 +29,12 @@ const routes: Routes = [
   {
     path : 'register',
     component : RegisterComponent
+  },
+  {
+    path : 'forgotPassword',
+    component : PasswrodrecoveryComponent
   }
+
 ];
 
 @NgModule({
