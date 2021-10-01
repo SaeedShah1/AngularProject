@@ -23,14 +23,11 @@ export class LoginComponent implements OnInit {
 
   onClickSubmit() {
 
-    console.log(this.employee.name + '..' + this.employee.password);
     if(this.employee!=null) {
       this.service.login(this.employee).subscribe(result=>{
-       if(result.success){
-         console.log(result);
-         alert(result.message);
-       }else{
-         alert(result.message);
+       console.log(result);
+       if(result.token){
+         console.log("Successful")
        }
         }
 

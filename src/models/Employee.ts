@@ -1,6 +1,6 @@
 export class Employee {
 
-   name: any;
+   username: any;
    password: any ;
 
 }
