@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LoginServiceService} from "./login-service.service";
 import {Employee} from "../../models/Employee";
 import {Router, Routes} from "@angular/router";
+import {retry} from "rxjs/operators";
 
 
 @Component({
@@ -31,6 +32,15 @@ export class LoginComponent implements OnInit {
     }
 }
 
+ reTry(){
+   if( this.tryAgain==false){
+     this.tryAgain = true;}
+   else{
+     this.tryAgain= false;
+   }
+
+}
+
 recoverPassword(){
 
 }
@@ -44,7 +54,9 @@ recoverPassword(){
          this.route.navigateByUrl("/employee");
        }
         },error => {
-
+        if(!this.tryAgain){
+          this.reTry();
+        }
         console.log("Bad Credentials");
         if((this.employee.username==null || this.employee.username=='') ||
           (this.employee.password==null || this.employee.password=='')

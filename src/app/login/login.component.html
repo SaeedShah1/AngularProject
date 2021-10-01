@@ -40,6 +40,8 @@
     <button mat-raised-button style="background:#44BCDD;color: white"  >Register
     </button>
     <p style="font-family: Arial;color: red;font-size: small" *ngIf="isChange==true">Username  or Password can not be empty!</p>
+    <p style="font-family: Arial;color: green;font-size: small" *ngIf="tryAgain==true">Wrong useraname or password!</p>
+    <span><button (click)="reTry()" *ngIf="tryAgain==true" class="mat-button" style="background: #3B5998;color: white">Try Again</button></span>
     <span><button (click)="message()" *ngIf="isChange==true" class="mat-fab" style="background: #007bb7">OK!</button></span>
   </form>
 </mat-card>
