@@ -1,37 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import {LoginServiceService} from "./login-service.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
+import {Employee} from "../../models/Employee";
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   isValid: Boolean = false;
-  constructor(private service: LoginServiceService,formGroup: FormGroup) {
-    this.formGroup =formGroup;
-  }
+  
+  constructor(private service: LoginServiceService) {}
 
-  formGroup :FormGroup ;
+   employee: Employee = new Employee();
 
-  ngOnInit(): void {
-    this.initForm();
-  }
 
-  initForm(){
-    this.formGroup = new FormGroup({
-      username: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required])
+  ngOnInit(): void {}
 
-    })
-  }
   onClickSubmit() {
 
-    if(this.formGroup.valid) {
-      this.service.login(this.formGroup.value).subscribe(result=>{
+    console.log(this.employee.name + '..' + this.employee.password);
+    if(this.employee!=null) {
+      this.service.login(this.employee).subscribe(result=>{
        if(result.success){
          console.log(result);
          alert(result.message);
