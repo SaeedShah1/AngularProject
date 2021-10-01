@@ -28,6 +28,8 @@ export class LoginComponent implements OnInit {
        console.log(result);
        if(result.token){
          console.log("Successful")
+       }else{
+         console.log("wrong credentials!")
        }
         }
 
