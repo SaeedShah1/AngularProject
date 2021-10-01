@@ -20,7 +20,7 @@
 
 <mat-card fxFlex="25" >
   <mat-toolbar  style="background: -webkit-linear-gradient(59deg, #3A6073, #16222A); font-family: 'Arial Black'; color: white" >Login Form</mat-toolbar >
-  <form  class="login-form" (ngSubmit) = "onClickSubmit()" style=" font-size: medium"  fxFlexAlign="stretch" fxLayout="column">
+  <form  class="login-form"  style=" font-size: medium"  fxFlexAlign="stretch" fxLayout="column">
     <mat-form-field>
       <input  type = "text" [(ngModel)]="employee.username" [ngModelOptions]="{standalone: true}" name = "name"  matInput placeholder = "username">
     </mat-form-field>
@@ -28,7 +28,7 @@
       <input type = "password" [(ngModel)]="employee.password" [ngModelOptions]="{standalone: true}" name = "password"  matInput placeholder = "password" >
     </mat-form-field>
 
-    <button mat-raised-button type = "submit" class="btn btn-success" >Login
+    <button mat-raised-button type = "submit" class="btn btn-success" (click)="onClickSubmit()">Login
 
     </button>
     <button mat-raised-button style="background:#44BCDD;color: white"  >Register

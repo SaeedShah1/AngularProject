@@ -1,6 +1,5 @@
-import {Component, Injectable, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LoginServiceService} from "./login-service.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Employee} from "../../models/Employee";
 
 
@@ -13,14 +12,16 @@ import {Employee} from "../../models/Employee";
 export class LoginComponent implements OnInit {
 
   isValid: Boolean = false;
-  
+  isChange: Boolean = false;
   constructor(private service: LoginServiceService) {}
 
    employee: Employee = new Employee();
 
 
   ngOnInit(): void {}
-
+changeColor(){
+    this.isChange = true;
+}
   onClickSubmit() {
 
     if(this.employee!=null) {
@@ -28,9 +29,10 @@ export class LoginComponent implements OnInit {
        console.log(result);
        if(result.token){
          console.log("Successful")
-       }else{
-         console.log("wrong credentials!")
        }
+        },error => {
+
+        console.log("Bad Credentials")
         }
 
 
