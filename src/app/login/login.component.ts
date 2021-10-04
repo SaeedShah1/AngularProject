@@ -42,12 +42,9 @@ recoverPassword(){
       this.service.login(this.employee).subscribe(result=>{
        console.log(result);
        if(result.token){
-         console.log("Successful")
          this.route.navigateByUrl("/home");
        }
         },error => {
-        this.reTry();
-        console.log("Bad Credentials");
         if((this.employee.username==null || this.employee.username=='') ||
           (this.employee.password==null || this.employee.password=='')
        ) {

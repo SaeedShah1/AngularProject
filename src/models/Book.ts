@@ -1,9 +1,9 @@
 
 export class Book{
 
-  id: Number;
-  name: String;
-  status: Boolean;
-  author: String;
+  id: Number= 0;
+  name: String = '';
+  status: Boolean=false;
+  author: String='';
 
 }

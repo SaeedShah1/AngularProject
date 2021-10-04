@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit {
 
   onChangePage(pageOfItems: Array<any>) {
     // update current page of items
-    this.pageOfItems = pageOfItems;
-    this.items = this.service.getBooks();
+    this.items = this.service.getBooks().subscribe(data=>{
+      this.items = data.results;
+      pageOfItems = data.results.length;
+    });
   }
 }
