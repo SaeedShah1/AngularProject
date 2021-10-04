@@ -20,6 +20,9 @@ import {HttpClientModule,HttpClient} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PasswrodrecoveryComponent } from './passwrodrecovery/passwrodrecovery.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { JwPaginationModule } from 'jw-angular-pagination';
+import {MatTabsModule} from "@angular/material/tabs";
 
 
 
@@ -48,7 +51,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     HttpClientModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    JwPaginationModule,
+    NgbModule,
+    MatTabsModule
   ],
   providers: [HttpClientModule,HttpClient],
   bootstrap: [AppComponent]

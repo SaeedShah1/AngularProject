@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LoginServiceService} from "./login-service.service";
 import {Employee} from "../../models/Employee";
-import {Router, Routes} from "@angular/router";
-import {retry} from "rxjs/operators";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -25,20 +24,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
    message(){
-    if(this.isChange==false){
-    this.isChange = true;}
-    else{
+
       this.isChange= false;
-    }
 }
 
  reTry(){
-   if( this.tryAgain==false){
-     this.tryAgain = true;}
-   else{
-     this.tryAgain= false;
-   }
 
+     this.tryAgain= false;
 }
 
 recoverPassword(){
@@ -51,18 +43,17 @@ recoverPassword(){
        console.log(result);
        if(result.token){
          console.log("Successful")
-         this.route.navigateByUrl("/employee");
+         this.route.navigateByUrl("/home");
        }
         },error => {
-        if(!this.tryAgain){
-          this.reTry();
-        }
+        this.reTry();
         console.log("Bad Credentials");
         if((this.employee.username==null || this.employee.username=='') ||
           (this.employee.password==null || this.employee.password=='')
-        && (!this.log)) {
+       ) {
           this.log = true;
-          this.message();
+        }else{
+          this.tryAgain= true;
         }
 
         }
