@@ -15,7 +15,9 @@ body { margin: 0;
   padding: 0;
   margin: auto 0;
 }
-.custom{
-  width: 5%;
-  height: 5%;
+.img{
+  object-fit:contain;
+  width:200px;
+  height:300px;
+  border: solid 1px #CCC
 }
