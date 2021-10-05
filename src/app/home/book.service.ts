@@ -9,24 +9,22 @@ import {baseUrl} from "../../environments/environment";
 })
 export class BookService {
 
-  header = {
+  token = localStorage.getItem('token');
+  httpHeader = {
     headers: new HttpHeaders(
       {
-        "Content-Type" :'application/json',
-        "Authorization":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZG1pbjMiLCJjcmVhdGVkIjoxNjMzMzQ5MjQyMDcwLCJwZXJtaXNzaW9ucyI6W10sImV4cCI6MTYzMzk1NDA0Mn0.M7JE1HwoFrLiwz70YBqnVXFEcmB8IdG5bdP9yoTsv_L89_07dg34reUgfs9LhIBlzAl9osOKg4VEDX_UAv5E-w"
+        'Content-Type' : 'application/json',
+        'Authorization' : `${this.token}`
       }
     )
-
   };
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {}
 
-  }
 
-  getBooks(): Observable<any> {
-
-    return this.http.get(baseUrl + "/books/getAll",this.header);
+  getBooksWithPagination(params:any): Observable<any> {
+    return this.http.post<any>(baseUrl + "/books/views",params,this.httpHeader);
 
   }
 }

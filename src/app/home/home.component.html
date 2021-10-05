@@ -13,167 +13,42 @@
 
 </div>
 
-<div class="row mat-list-base" >
-  <div class="col-sm">
-    <a href="/friends"
-       role="button"
-       class="btn btn-outline-primary btn-sm btn-outline-info text-center">
-      <span><i class="fa fa-book"></i></span>
-      <br>View
-    </a>
-
-    <div class="mat-card-content" style="width: 18rem;">
-      <img src="/assets/images/Jane Eyre.png" class="img">
-      <div class="card-body">
-        <h5 class="card-title">Cute Horse</h5>
-        <p class="card-text">Some quick example text's content.</p>
-        <a href="#" class="fa fa-shopping-cart"> Add To cart</a>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="col-sm">
-    <a href="/friends"
-       role="button"
-       class="btn btn-outline-primary btn-sm btn-outline-info text-center">
-      <span><i class="fa fa-book"></i></span>
-      <br>View
-    </a>
-
-    <div class="mat-card-content" style="width: 18rem;">
-      <img src="/assets/images/The Waves.png" class="img">
-      <div class="card-body">
-        <h5 class="card-title">Cute Horse</h5>
-        <p class="card-text">Some quick example text's content.</p>
-        <a href="#" class="fa fa-shopping-cart">Add To cart</a>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="col-sm">
-    <a href="/friends"
-       role="button"
-       class="btn btn-outline-primary btn-sm btn-outline-info text-center">
-      <span><i class="fa fa-book"></i></span>
-      <br>View
-    </a>
-    <div class="mat-card-content" style="width: 18rem;">
-      <img src="/assets/images/Heart of Darkness.png" class="img">
-      <div class="card-body">
-        <h5 class="card-title">Cute Horse</h5>
-        <p class="card-text">Some quick example text's content.</p>
-        <a href="#" class="fa fa-shopping-cart">Add To cart</a>
-      </div>
-    </div>
-
-  </div>
 
 
-  <div class="col-sm">
-    <a href="/friends"
-       role="button"
-       class="btn btn-outline-primary btn-sm btn-outline-info text-center">
-      <span><i class="fa fa-book"></i></span>
-      <br>View
-    </a>
-    <div class="mat-card-content" style="width: 18rem;">
-      <img src="/assets/images/Great Expectations.png" class="img">
-      <div class="card-body">
-        <h5 class="card-title">Cute Horse</h5>
-        <p class="card-text">Some quick example text's content.</p>
-        <a href="#" class="fa fa-shopping-cart">Add To cart</a>
-      </div>
-    </div>
+<div class="row-cols-auto">
+  <table class="table table-sm" >
+    <tbody>
+    <tr *ngFor = "let books of books| paginate: params">
+      <td>
+        <div>
+          <a href="/friends"
+             role="button"
+             class="btn btn-outline-primary btn-sm btn-outline-info text-center">
+            <span><i class="fa fa-book"></i></span>
+            <br>View
+          </a>
 
-  </div>
+          <div class="table-sm" style="width: 18rem;">
+            <img src="/assets/images/{{books.name}}.png" class="img">
+            <div class="mat-card-content">
+              <p style="font-family: Arial;color: #3B5998">Name: {{books.name}}</p>
+
+               <p style="font-family: Arial;color: #3B5998">Author: {{books.author}}</p>
+
+              <a href="#" class="fa fa-shopping-cart"> Add To cart</a>
+            </div>
+          </div>
+
+        </div>
 
 
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+  <pagination-controls
+    (pageChange)="onChangePage($event)"
+  ></pagination-controls>
 </div>
 
-
-<div class="row">
-  <div class="col-sm">
-    <a href="/friends"
-       role="button"
-       class="btn btn-outline-primary btn-sm btn-outline-info text-center">
-      <span><i class="fa fa-book"></i></span>
-      <br>View
-    </a>
-
-    <div class="mat-card-content" style="width: 18rem;">
-      <img src="/assets/images/Frankenstein.png" class="img">
-
-      <div class="card-body">
-        <h5 class="card-title">Cute Horse</h5>
-        <p class="card-text">Some quick example text's content.</p>
-        <a href="#" class="fa fa-shopping-cart">Add To cart</a>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="col-sm">
-    <a href="/friends"
-       role="button"
-       class="btn btn-outline-primary btn-sm btn-outline-info text-center">
-      <span><i class="fa fa-book"></i></span>
-      <br>View
-    </a>
-
-    <div class="mat-card-content" style="width: 18rem;">
-      <img src="/assets/images/Emma.png" class="img">
-      <div class="card-body">
-        <h5 class="card-title">Cute Horse</h5>
-        <p class="card-text">Some quick example text's content.</p>
-        <a href="#" class="fa fa-shopping-cart">Add To cart</a>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="col-sm">
-    <a href="/friends"
-       role="button"
-       class="btn btn-outline-primary btn-sm btn-outline-info text-center">
-      <span><i class="fa fa-book small" ></i></span>
-      <br>View
-    </a>
-    <div class="mat-card-content" style="width: 18rem;">
-      <img src="/assets/images/Clarissa.png" class="img">
-      <div class="card-body">
-        <h5 class="card-title">Cute Horse</h5>
-        <p class="card-text">Some quick example text's content.</p>
-        <a href="#" class="fa fa-shopping-cart">Add To cart</a>
-      </div>
-    </div>
-
-  </div>
-
-
-  <div class="col-sm">
-    <a href="/friends"
-       role="button"
-       class="btn btn-outline-primary btn-sm btn-outline-info text-center">
-      <span><i class="fa fa-book"></i></span>
-      <br>View
-    </a>
-    <div class="mat-card-content" style="width: 18rem;">
-      <img src="/assets/images/Atonement.png" class="img">
-      <div class="card-body">
-        <h5 class="card-title">Cute Horse</h5>
-        <p class="card-text">Some quick example text's content.</p>
-        <a href="#" class="fa fa-shopping-cart">Add To cart</a>
-      </div>
-
-    </div>
-
-  </div>
-
-
-</div>
-
-<div class="card-footer pb-0 pt-3" mat-tab-nav-bar>
-  <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
-</div>

@@ -23,7 +23,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JwPaginationModule } from 'jw-angular-pagination';
 import {MatTabsModule} from "@angular/material/tabs";
-
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -53,6 +53,7 @@ import {MatTabsModule} from "@angular/material/tabs";
     MatFormFieldModule,
     BrowserAnimationsModule,
     JwPaginationModule,
+    NgxPaginationModule,
     NgbModule,
     MatTabsModule
   ],

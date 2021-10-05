@@ -17,7 +17,11 @@ body { margin: 0;
 }
 .img{
   object-fit:contain;
-  width:200px;
-  height:300px;
+  width:150px;
+  height:250px;
   border: solid 1px #CCC
+}
+.book{
+  float: left;
+
 }

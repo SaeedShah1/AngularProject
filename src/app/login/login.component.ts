@@ -42,13 +42,14 @@ recoverPassword(){
       this.service.login(this.employee).subscribe(result=>{
        console.log(result);
        if(result.token){
-         this.route.navigateByUrl("/home");
+         localStorage.setItem('token',result.token);
+         this.route.navigateByUrl("/Home");
        }
         },error => {
         if((this.employee.username==null || this.employee.username=='') ||
           (this.employee.password==null || this.employee.password=='')
        ) {
-          this.log = true;
+          this.isChange = true;
         }else{
           this.tryAgain= true;
         }

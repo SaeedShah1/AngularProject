@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BookService} from "./book.service";
+import {Observable} from "rxjs";
+import {Book} from "../../models/Book";
 
 
 @Component({
@@ -9,18 +11,37 @@ import {BookService} from "./book.service";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: BookService) { }
-  items: any = [];
-  pageOfItems: Array<any> =[];
-  ngOnInit(): void {
-    this.items = new Array<any>()
+  items: Array<any> = [];
+  books: Book[] =[];
+
+
+  params = {
+    itemsPerPage : 4,
+    sortBy: 'id',
+    direction: 'desc',
+    currentPage: 0,
+    totalItems :0
+  };
+
+
+  constructor(private service: BookService) {
   }
 
-  onChangePage(pageOfItems: Array<any>) {
-    // update current page of items
-    this.items = this.service.getBooks().subscribe(data=>{
-      this.items = data.results;
-      pageOfItems = data.results.length;
+  ngOnInit(): void {
+    this.getAllBooksWithPagination(this.params);
+    this.items = new Array<any>();
+  }
+  getAllBooksWithPagination(params:any){
+    this.service.getBooksWithPagination(params).subscribe(response =>{
+      this.params.totalItems = response.totalElements;
+      this.books = response.data;
     });
+  }
+
+  onChangePage(page: number) {
+    // update current page of items
+    this.params.currentPage = page-1;
+    this.getAllBooksWithPagination(this.params);
+    this.params.currentPage = page;
   }
 }
