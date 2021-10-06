@@ -19,7 +19,7 @@
 
   <table class="table table-sm" >
     <tbody>
-    <tr>
+    <tr >
       <td *ngFor = "let book of books| paginate: params">
         <div >
           <a href="/friends"
@@ -49,8 +49,10 @@
     </tr>
     </tbody>
   </table>
+
   <pagination-controls
-    (pageChange)="onChangePage($event)"
+    (pageChange)="onChangePage($event)" class="pagination pagination-lg"
   ></pagination-controls>
+
 </div>
 

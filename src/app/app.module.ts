@@ -24,6 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JwPaginationModule } from 'jw-angular-pagination';
 import {MatTabsModule} from "@angular/material/tabs";
 import {NgxPaginationModule} from "ngx-pagination";
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import {NgxPaginationModule} from "ngx-pagination";
     JwPaginationModule,
     NgxPaginationModule,
     NgbModule,
+    MatPaginatorModule,
     MatTabsModule
   ],
   providers: [HttpClientModule,HttpClient],
