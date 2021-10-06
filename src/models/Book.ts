@@ -1,9 +1,15 @@
+import {AuthorDTO} from "./AuthorDTO";
 
 export class Book{
 
-  id: Number= 0;
+  id: Number= 1;
   name: String = '';
   status: Boolean=false;
-  author: String='';
+  authorDTO: AuthorDTO={
+    id:1,
+  authorName:'',
+  country:'',
+  totalPublications:''
+  };
 
 }

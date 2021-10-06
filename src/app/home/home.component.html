@@ -6,9 +6,9 @@
     <h5 class="mat-tab-header" style="color: #44BCDD; font-size: large;font-family: 'Arial Black'">World Of Books</h5>
     <mat-form-field >
       <input type = "Search"
-             name = "Search"  matInput placeholder = "Search Book" >
+             name = "Search"  matInput placeholder = "Search Book" [(ngModel)]="name" >
     </mat-form-field>
-    <a  routerLink="/" class="fa fa-search" style="size: auto" ></a>
+    <a (click)="getAllBooksWithPagination(name,params)" class="fa fa-search btn btn-primary btn-sm " style="color:white;"  ></a>
   </div>
 
 </div>
@@ -16,11 +16,12 @@
 
 
 <div class="row-cols-auto">
+
   <table class="table table-sm" >
     <tbody>
-    <tr *ngFor = "let books of books| paginate: params">
-      <td>
-        <div>
+    <tr>
+      <td *ngFor = "let book of books| paginate: params">
+        <div >
           <a href="/friends"
              role="button"
              class="btn btn-outline-primary btn-sm btn-outline-info text-center">
@@ -29,11 +30,11 @@
           </a>
 
           <div class="table-sm" style="width: 18rem;">
-            <img src="/assets/images/{{books.name}}.png" class="img">
+            <img src="/assets/images/{{book.name}}.png" class="img">
             <div class="mat-card-content">
-              <p style="font-family: Arial;color: #3B5998">Name: {{books.name}}</p>
+              <p style="font-family: Arial;color: #3B5998">Name: {{book.name}}</p>
 
-               <p style="font-family: Arial;color: #3B5998">Author: {{books.author}}</p>
+               <p style="font-family: Arial;color: #3B5998">Author: {{book.authorDTO.authorName}}</p>
 
               <a href="#" class="fa fa-shopping-cart"> Add To cart</a>
             </div>
@@ -41,8 +42,9 @@
 
         </div>
 
-
       </td>
+
+
 
     </tr>
     </tbody>
