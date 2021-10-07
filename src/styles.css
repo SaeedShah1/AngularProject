@@ -20,11 +20,12 @@ body { margin: 0;
 }
 .img{
   object-fit:contain;
-  width:150px;
-  height:250px;
+  width:130px;
+  height:200px;
   border: solid 1px #CCC
 }
 .book{
   float: left;
 
 }
+

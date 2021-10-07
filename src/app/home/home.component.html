@@ -1,52 +1,53 @@
 
 
 <div class="row" >
-  <img src="/assets/images/h.jpg" class="banner">
+
+
   <div class="card-header">
-    <h5 class="mat-tab-header" style="color: #44BCDD; font-size: large;font-family: 'Arial Black'">World Of Books</h5>
+
     <mat-form-field >
       <input type = "Search"
              name = "Search"  matInput placeholder = "Search Book" [(ngModel)]="name" >
     </mat-form-field>
-    <a (click)="getAllBooksWithPagination(name,params)" class="fa fa-search btn btn-primary btn-sm " style="color:white;"  ></a>
+    <a (click)="getAllBooksWithPagination(name,params)" class="fa fa-search btn btn-outline-info btn-sm " style="color:darkturquoise;  "  ></a>
   </div>
 
 </div>
 
+<div class="row-cols-auto" >
 
 
-<div class="row-cols-auto">
-
-  <table class="table table-sm" >
+ <table class="table table-sm" >
     <tbody>
+
     <tr >
-      <td *ngFor = "let book of books| paginate: params">
-        <div >
-          <a href="/friends"
-             role="button"
-             class="btn btn-outline-primary btn-sm btn-outline-info text-center">
-            <span><i class="fa fa-book"></i></span>
-            <br>View
+      <td *ngFor = "let book of books| paginate: params" >
+  <div>
+        <a href="/"
+             class="fa fa-book btn btn-sm btn-outline-info text-center">
+            View
           </a>
-
-          <div class="table-sm" style="width: 18rem;">
+</div>
+        <div>
             <img src="/assets/images/{{book.name}}.png" class="img">
-            <div class="mat-card-content">
-              <p style="font-family: Arial;color: #3B5998">Name: {{book.name}}</p>
 
-               <p style="font-family: Arial;color: #3B5998">Author: {{book.authorDTO.authorName}}</p>
+              <p style="font-family: Arial;color: black">Name: {{book.name}}</p>
 
-              <a href="#" class="fa fa-shopping-cart"> Add To cart</a>
-            </div>
-          </div>
+              <p style="font-family: Arial;color: black">Author: {{book.authorDTO.authorName}}</p>
 
-        </div>
+              <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+  </div>
 
       </td>
 
 
-
     </tr>
+
+
+
+
+
     </tbody>
   </table>
 

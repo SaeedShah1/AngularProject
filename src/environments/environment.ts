@@ -13,6 +13,6 @@ export const environment = {
   production: false
 
 };
-export const baseUrl = 'http://localhost:8086/practice'
+export const baseUrl = 'http://localhost:8086/practice';
 
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.

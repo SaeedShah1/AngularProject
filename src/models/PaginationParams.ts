@@ -1,6 +1,6 @@
 export  class PaginationParams {
 
-  itemsPerPage : number =4;
+  itemsPerPage : number =5;
   sortBy: string ='id';
   direction: string = 'desc';
   currentPage: number = 0;
