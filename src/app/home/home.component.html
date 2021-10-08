@@ -9,35 +9,37 @@
       <input type = "Search"
              name = "Search"  matInput placeholder = "Search Book" [(ngModel)]="name" >
     </mat-form-field>
-    <a (click)="getAllBooksWithPagination(name,params)" class="fa fa-search btn btn-outline-info btn-sm " style="color:darkturquoise;  "  ></a>
+    <button (click)="getAllBooksWithPagination(name,params)" class="fa fa-search btn btn-outline-info btn-sm " style="color:darkturquoise;  "  ></button>
   </div>
 
 </div>
 
-<div class="row-cols-auto" >
+<div>
 
 
- <table class="table table-sm" >
-    <tbody>
 
-    <tr >
-      <td *ngFor = "let book of books| paginate: params" >
-  <div>
-        <a href="/"
-             class="fa fa-book btn btn-sm btn-outline-info text-center">
-            View
-          </a>
-</div>
+ <table class="table table-sm " >
+    <tbody >
+
+    <tr>
+      <td *ngFor="let Book of books| paginate:params">
+
         <div>
-            <img src="/assets/images/{{book.name}}.png" class="img">
+          <button
+            class="fa fa-book btn btn-sm btn-outline-info text-center"  (click)="open(content,Book.id)"  >
+            View
+          </button>
+        </div>
+        <div>
+          <img src="/assets/images/{{Book.name}}.png" class="img">
 
-              <p style="font-family: Arial;color: black">Name: {{book.name}}</p>
+          <p style="font-family: Arial;color: black">Name: {{Book.name}}</p>
 
-              <p style="font-family: Arial;color: black">Author: {{book.authorDTO.authorName}}</p>
+          <p style="font-family: Arial;color: black">Author: {{Book.authorDTO.authorName}}</p>
 
-              <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+          <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
 
-  </div>
+        </div>
 
       </td>
 
@@ -46,14 +48,36 @@
 
 
 
-
-
     </tbody>
   </table>
+
 
   <pagination-controls
     (pageChange)="onChangePage($event)" class="pagination pagination-lg"
   ></pagination-controls>
 
 </div>
+
+
+<ng-template #content let-modal >
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{book.name}}</h4>
+    <button type="button" class=" btn btn-outline-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+<form>
+      <div class="container">
+        <img src="/assets/images/{{book.name}}.png" class="img" for ="forImg">
+        <p style="font-family: Arial;color: black">Name: {{book.name}}</p>
+
+        <p style="font-family: Arial;color: black">Author: {{book.authorDTO.authorName}}</p>
+
+        <a  class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+      </div>
+</form>
+  </div>
+
+</ng-template>
 

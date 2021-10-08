@@ -5,6 +5,7 @@ body { margin: 0;
 .container{
   margin-top:5%;
 }
+
 .fa{
   font-size: 50px;
 }
@@ -24,8 +25,18 @@ body { margin: 0;
   height:200px;
   border: solid 1px #CCC
 }
+.imgforview{
+  object-fit:contain;
+  width:500px;
+  height:500px;
+  border: solid 1px #CCC
+}
 .book{
   float: left;
 
+}
+.stack-top{
+  z-index: 20;
+  margin: 50%; /* for demo purpose  */
 }
 

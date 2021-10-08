@@ -22,6 +22,10 @@ export class BookService {
 
   constructor(private http: HttpClient) {}
 
+  viewBook(id: any): Observable<any>{
+    return  this.http.get<any>(baseUrl + "/books/view/"+ id);
+
+  }
 
   getBooksWithPagination(name:string,params:any): Observable<any> {
     return this.http.post<any>(baseUrl + "/books/views",'', {params:{
