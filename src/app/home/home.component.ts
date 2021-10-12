@@ -16,21 +16,18 @@ export class HomeComponent implements OnInit {
   books: Book[] =[];
   name: string= '';
   params : PaginationParams = new PaginationParams();
-  isViewCalled: boolean = false;
+  paramsForSearch: PaginationParams = new PaginationParams();
   book: Book = new Book();
   closeResults: string ='';
+
   constructor(private service: BookService,private modalService: NgbModal) {
   }
 
-    index:any = [];
-    rows:any = [];
-    data:any = [];
-    i : any = 0;
+  public cartItem : number = 0;
 
 
 
   viewBook(id: any){
-    this.isViewCalled = true;
     this.service.viewBook(id).subscribe(response => {
     this.book = response;
     });
@@ -42,31 +39,23 @@ export class HomeComponent implements OnInit {
     this.items = new Array<any>();
   }
   getAllBooksWithPagination(name:string,params:any){
-    this.service.getBooksWithPagination(name,params).subscribe(response =>{
-      this.params.totalItems = response.totalElements;
-      this.books = response.data;
 
-    });
-for(let row=0;row<this.books.length;row++){
-  this.rows[row]=row;
-}
-    for(let i =0; i<5; i++) {
-      if(i<3){
+        this.service.getBooksWithPagination(name, params).subscribe(response => {
+          this.params.totalItems = response.totalElements;
+          this.books = response.data;
+          this.cartItem = response.length;
+        });
 
-        this.data[0]=1;
       }
-      this.index[i] = i;
 
-    }
-  }
+
 
   onChangePage(page: number) {
     // update current page of items
-    this.i=this.i+1;
-    this.params.currentPage = page-1;
-    this.getAllBooksWithPagination(this.name,this.params);
-    this.params.currentPage = page;
 
+        this.params.currentPage = page - 1;
+        this.getAllBooksWithPagination(this.name, this.params);
+        this.params.currentPage = page;
 
   }
 

@@ -23,7 +23,8 @@ body { margin: 0;
   object-fit:contain;
   width:130px;
   height:200px;
-  border: solid 1px #CCC
+  border: solid 1px #CCC;
+  transition: ease-in-out;
 }
 .imgforview{
   object-fit:contain;

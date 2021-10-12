@@ -1,4 +1,19 @@
+<div class = "header " >
+  <div class="navbar navbar-dark shadow-sm">
+    <div class="navbar-brand align-item-center d-flex">
+      <i style="font-size: 40px;" class="fa fa-shipping-fast">&nbsp;
 
+      </i>
+      <a style="color: white;" href="/Home">
+      <strong style="font-size: 20px;" class="fa fa-umbrella">Books.Com</strong>
+      </a>
+    </div>
+    <button class="btn btn-primary" >
+      <i style="font-size: 30px;" class="fa fa-cart-plus"></i>
+      <div style="font-size: 10px;" class="badge bg-danger">{{cartItem}}</div>
+    </button>
+  </div>
+</div>
 
 <div class="row" >
 
@@ -9,7 +24,7 @@
       <input type = "Search"
              name = "Search"  matInput placeholder = "Search Book" [(ngModel)]="name" >
     </mat-form-field>
-    <button (click)="getAllBooksWithPagination(name,params)" class="fa fa-search btn btn-outline-info btn-sm " style="color:darkturquoise;  "  ></button>
+    <button (click)="getAllBooksWithPagination(name,paramsForSearch)" class="fa fa-search btn btn-outline-info btn-sm " style="color:darkturquoise;  "  ></button>
   </div>
 
 </div>
@@ -21,7 +36,7 @@
  <table class="table table-sm " >
     <tbody >
 
-    <tr>
+    <tr *ngIf="name == ''">
       <td *ngFor="let Book of books| paginate:params">
 
         <div>
@@ -46,7 +61,30 @@
 
     </tr>
 
+    <tr *ngIf="!(name == '')">
+      <td *ngFor="let Book of books| paginate:params">
 
+        <div>
+          <button
+            class="fa fa-book btn btn-sm btn-outline-info text-center"  (click)="open(content,Book.id)"  >
+            View
+          </button>
+        </div>
+        <div>
+          <img src="/assets/images/{{Book.name}}.png" class="img">
+
+          <p style="font-family: Arial;color: black">Name: {{Book.name}}</p>
+
+          <p style="font-family: Arial;color: black">Author: {{Book.authorDTO.authorName}}</p>
+
+          <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+        </div>
+
+      </td>
+
+
+    </tr>
 
     </tbody>
   </table>
@@ -60,9 +98,9 @@
 
 
 <ng-template #content let-modal >
-  <div class="modal-header">
+  <div class="modal-header header">
     <h4 class="modal-title" id="modal-basic-title">{{book.name}}</h4>
-    <button type="button" class=" btn btn-outline-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <button type="button" class=" btn btn-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
