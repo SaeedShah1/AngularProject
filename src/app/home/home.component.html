@@ -1,4 +1,4 @@
-<div class = "header " >
+<header class = "header " >
   <div class="navbar navbar-dark shadow-sm">
     <div class="navbar-brand align-item-center d-flex">
       <i style="font-size: 40px;" class="fa fa-shipping-fast">&nbsp;
@@ -13,7 +13,7 @@
       <div style="font-size: 10px;" class="badge bg-danger">{{cartItem}}</div>
     </button>
   </div>
-</div>
+</header>
 
 <div class="row" >
 
@@ -39,14 +39,9 @@
     <tr *ngIf="name == ''">
       <td *ngFor="let Book of books| paginate:params">
 
-        <div>
-          <button
-            class="fa fa-book btn btn-sm btn-outline-info text-center"  (click)="open(content,Book.id)"  >
-            View
-          </button>
-        </div>
+
         <div class="card">
-          <img src="/assets/images/{{Book.name}}.png" class="img img">
+          <img src="/assets/images/{{Book.name}}.png" class="img img" (click)="open(content,Book.id)" >
 
           <p style="font-family: Arial;color: black">Name: {{Book.name}}</p>
 
