@@ -26,6 +26,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {NgxPaginationModule} from "ngx-pagination";
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -38,7 +39,8 @@ import {MatTableModule} from '@angular/material/table';
     RegisterComponent,
     HeaderComponent,
     FooterComponent,
-    PasswrodrecoveryComponent
+    PasswrodrecoveryComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

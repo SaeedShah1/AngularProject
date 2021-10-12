@@ -21,11 +21,16 @@ body { margin: 0;
 }
 .img{
   object-fit:contain;
-  width:130px;
-  height:200px;
+  width:150px;
+  height:230px;
   border: solid 1px #CCC;
-  transition: ease-in-out;
+
 }
+.card img:hover {
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1);
+}
+
 .imgforview{
   object-fit:contain;
   width:500px;
