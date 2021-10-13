@@ -19,11 +19,16 @@ export class HomeComponent implements OnInit {
   paramsForSearch: PaginationParams = new PaginationParams();
   book: Book = new Book();
   closeResults: string ='';
+  row:any = [];
+  col:any = [];
+  ind:any = [];
+
 
   constructor(private service: BookService,private modalService: NgbModal) {
   }
 
   public cartItem : number = 0;
+   sr : number = 0;
 
 
 
@@ -36,6 +41,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllBooksWithPagination(this.name,this.params);
+    this.ind[0] = 'fg';
     this.items = new Array<any>();
   }
   getAllBooksWithPagination(name:string,params:any){
@@ -46,8 +52,26 @@ export class HomeComponent implements OnInit {
           this.cartItem = response.length;
         });
 
-      }
+       for(let i = 0; i<3 ; i++){
+         this.row[i] = this.books[i];
+       }
 
+    for(let i = 0; i<5 ; i++){
+      this.col[i] = this.books[i];
+
+    }
+
+      }
+       getBooksOneByOne():any{
+
+    if(this.sr<this.books.length) {
+
+       this.sr++;
+
+     }else{
+
+       this.sr = 0;
+     }}
 
 
   onChangePage(page: number) {
