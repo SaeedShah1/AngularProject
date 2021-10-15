@@ -32,12 +32,196 @@
 <div>
 
 
-<div class ="d-flex flex-row-reverse bd-highlight mb-2" >
+<div>
 
- <table class="table table-sm ">
+
+ <table class="table  table-responsive-xxl">
+   <div class="card"  *ngFor="let Book of books| paginate:params;let i=index">
    <tbody>
+    <tr *ngIf=" books.length<5 && i==0">
 
-   <tr>
+      <td *ngIf=" books.length>0 && i==0" style="width: 23%">
+        <img src="/assets/images/{{books[0].name}}.png" class="img img" (click)="open(content,books[0].id)" >
+
+        <p style="font-family: Arial;color: black">Name: {{books[0].name}}</p>
+
+        <p style="font-family: Arial;color: black">Author: {{books[0].authorDTO.authorName}}</p>
+
+        <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+      </td>
+
+      <td *ngIf=" books.length>1 && i==0"  style="width: 21%">
+        <img src="/assets/images/{{books[1].name}}.png" class="img img" (click)="open(content,books[1].id)" >
+
+        <p style="font-family: Arial;color: black">Name: {{books[1].name}}</p>
+
+        <p style="font-family: Arial;color: black">Author: {{books[1].authorDTO.authorName}}</p>
+
+        <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+      </td>
+
+      <td *ngIf=" books.length>2 && i==0"  style="width: 21%">
+        <img src="/assets/images/{{books[2].name}}.png" class="img img" (click)="open(content,books[2].id)" >
+
+        <p style="font-family: Arial;color: black">Name: {{books[2].name}}</p>
+
+        <p style="font-family: Arial;color: black">Author: {{books[2].authorDTO.authorName}}</p>
+
+        <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+      </td>
+
+      <td *ngIf=" books.length>3 && i==0"  style="width: 20%">
+        <img src="/assets/images/{{books[3].name}}.png" class="img img" (click)="open(content,books[3].id)" >
+
+        <p style="font-family: Arial;color: black">Name: {{books[3].name}}</p>
+
+        <p style="font-family: Arial;color: black">Author: {{books[3].authorDTO.authorName}}</p>
+
+        <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+      </td>
+      <td *ngIf=" books.length>4 && i==0"  style="width: 20%">
+        <img src="/assets/images/{{books[4].name}}.png" class="img img" (click)="open(content,books[4].id)" >
+
+        <p style="font-family: Arial;color: black">Name: {{books[4].name}}</p>
+
+        <p style="font-family: Arial;color: black">Author: {{books[4].authorDTO.authorName}}</p>
+
+        <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+      </td>
+    </tr>
+
+
+
+   <tr *ngIf="books.length>=5 && i==0">
+
+     <td style="width: 23%">
+      <img src="/assets/images/{{books[0].name}}.png" class="img img" (click)="open(content,books[0].id)" >
+
+      <p style="font-family: Arial;color: black">Name: {{books[0].name}}</p>
+
+      <p style="font-family: Arial;color: black">Author: {{books[0].authorDTO.authorName}}</p>
+
+      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+    </td>
+
+     <td style="width: 21%">
+      <img src="/assets/images/{{books[1].name}}.png" class="img img" (click)="open(content,books[1].id)" >
+
+      <p style="font-family: Arial;color: black">Name: {{books[1].name}}</p>
+
+      <p style="font-family: Arial;color: black">Author: {{books[1].authorDTO.authorName}}</p>
+
+      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+    </td>
+
+     <td style="width: 21%">
+      <img src="/assets/images/{{books[2].name}}.png" class="img img" (click)="open(content,books[2].id)" >
+
+      <p style="font-family: Arial;color: black">Name: {{books[2].name}}</p>
+
+      <p style="font-family: Arial;color: black">Author: {{books[2].authorDTO.authorName}}</p>
+
+      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+    </td>
+
+     <td style="width: 20%">
+      <img src="/assets/images/{{books[3].name}}.png" class="img img" (click)="open(content,books[3].id)" >
+
+      <p style="font-family: Arial;color: black">Name: {{books[3].name}}</p>
+
+      <p style="font-family: Arial;color: black">Author: {{books[3].authorDTO.authorName}}</p>
+
+      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+    </td>
+
+     <td style="width: 20%">
+      <img src="/assets/images/{{books[4].name}}.png" class="img img" (click)="open(content,books[4].id)" >
+
+      <p style="font-family: Arial;color: black">Name: {{books[4].name}}</p>
+
+      <p style="font-family: Arial;color: black">Author: {{books[4].authorDTO.authorName}}</p>
+
+      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+    </td>
+
+  </tr>
+
+
+
+  <tr *ngIf="books.length>=5 && books.length<=10 && i==1">
+    <td style="width: 23%">
+      <img src="/assets/images/{{books[5].name}}.png" class="img img" (click)="open(content,books[5].id)" >
+
+      <p style="font-family: Arial;color: black">Name: {{books[5].name}}</p>
+
+      <p style="font-family: Arial;color: black">Author: {{books[5].authorDTO.authorName}}</p>
+
+      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+    </td>
+
+    <td style="width: 21%">
+      <img src="/assets/images/{{books[6].name}}.png" class="img img" (click)="open(content,books[6].id)" >
+
+      <p style="font-family: Arial;color: black">Name: {{books[6].name}}</p>
+
+      <p style="font-family: Arial;color: black">Author: {{books[6].authorDTO.authorName}}</p>
+
+      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+    </td>
+
+    <td style="width: 21%">
+      <img src="/assets/images/{{books[7].name}}.png" class="img img" (click)="open(content,books[7].id)" >
+
+      <p style="font-family: Arial;color: black">Name: {{books[7].name}}</p>
+
+      <p style="font-family: Arial;color: black">Author: {{books[7].authorDTO.authorName}}</p>
+
+      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+    </td>
+
+    <td style="width: 20%">
+
+      <img src="/assets/images/{{books[8].name}}.png" class="img img" (click)="open(content,books[8].id)" >
+
+      <p style="font-family: Arial;color: black">Name: {{books[8].name}}</p>
+
+      <p style="font-family: Arial;color: black">Author: {{books[8].authorDTO.authorName}}</p>
+
+      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+
+    </td>
+
+    <td style="width: 20%">
+      <div>
+      <img src="/assets/images/{{books[9].name}}.png" class="img img" (click)="open(content,books[9].id)" >
+
+      <p style="font-family: Arial;color: black">Name: {{books[9].name}}</p>
+
+      <p style="font-family: Arial;color: black">Author: {{books[9].authorDTO.authorName}}</p>
+
+      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+      </div>
+    </td>
+
+  </tr>
+
+
+
+
+   <!--<tr>
      <td  *ngFor="let Book of books| paginate:params;let i = index">
 
        <div class="card">
@@ -56,7 +240,7 @@
      </td>
 
    </tr>
-
+-->
 
 <!--    <tbody *ngFor="let i of ind| paginate:params">
 
@@ -90,7 +274,9 @@
 
 
     </tbody>
+  </div>
   </table>
+
 
 </div>
   <pagination-controls

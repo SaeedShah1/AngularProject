@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit {
           this.params.totalItems = response.totalElements;
           this.books = response.data;
           this.cartItem = response.length;
+
         });
 
        for(let i = 0; i<3 ; i++){
@@ -62,16 +63,6 @@ export class HomeComponent implements OnInit {
     }
 
       }
-       getBooksOneByOne():any{
-
-    if(this.sr<this.books.length) {
-
-       this.sr++;
-
-     }else{
-
-       this.sr = 0;
-     }}
 
 
   onChangePage(page: number) {
