@@ -10,24 +10,22 @@
             <th>Sr.No</th>
             <th>Product Name</th>
             <th>Product Image</th>
-            <th>Description</th>
-            <th>Price</th>
+            <th>Author</th>
             <th>Quantity</th>
-            <th>Total</th>
             <th>Action</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let item of products; let i = index">
             <td>{{i+1}}</td>
-            <td>{{item.title}}</td>
-            <td> <img src="/assets/images/{{item.name}}.png" class="img img"  ></td>
-            <td style="width: 25%;">{{item.description}}</td>
-            <th style="width: 12%;">{{item.price}}</th>
-            <td style="width: 12%;">{{item.quantity}}</td>
-            <td style="width: 12%;">{{item.total}}</td>
+            <td>{{item.name}}</td>
+            <td> <img src="/assets/images/{{item.name}}.png" class="img img" ></td>
+            <td style="width: 12%;">{{item.authorDTO.authorName}}</td>
+            <td style="width: 12%;">Qauntity</td>
+
+
             <td>
-              <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+              <button (click)="removeItem(item)" class="btn btn-danger"><i class="fa fa-trash-alt"></i></button>
             </td>
           </tr>
           <tr>

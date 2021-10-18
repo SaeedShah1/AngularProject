@@ -26,6 +26,9 @@ export class BookService {
     return  this.http.get<any>(baseUrl + "/books/view/"+ id);
 
   }
+  getAllBooks(): Observable <any>{
+   return  this.http.get(baseUrl + "/books/getAll");
+  }
 
   getBooksWithPagination(name:string,params:any): Observable<any> {
     return this.http.post<any>(baseUrl + "/books/views",'', {params:{

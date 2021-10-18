@@ -3,6 +3,8 @@ import {BookService} from "./book.service";
 import {Book} from "../../models/Book";
 import {PaginationParams} from "../../models/PaginationParams";
 import {ModalDismissReasons,NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {CartService} from "../cart/cart.service";
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -20,7 +22,7 @@ export class HomeComponent implements OnInit {
   book: Book = new Book();
   closeResults: string ='';
   cartItem :number = 0;
-  constructor(private service: BookService,private modalService: NgbModal) {
+  constructor(private service: BookService,private modalService: NgbModal,private cartService: CartService) {
   }
 
 
@@ -28,9 +30,9 @@ export class HomeComponent implements OnInit {
 
 
 
-  viewBook(id: any){
-    this.service.viewBook(id).subscribe(response => {
-    this.book = response;
+   viewBook(id: any){
+      this.service.viewBook(id).subscribe(response => {
+     this.book = response;
     });
   }
 
@@ -57,6 +59,9 @@ export class HomeComponent implements OnInit {
        this.closeResults = `Dismissed ${this.getDismissReason(reason)}`;
      });
      this.viewBook(id);
+     if(this.book!=null) {
+       this.cartService.addtoCart(this.book);
+     }
      this.cartItem = this.cartItem+1;
    }
   onChangePage(page: number) {
