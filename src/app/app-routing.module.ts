@@ -7,6 +7,7 @@ import {EmployeeComponent} from './employee/employee.component';
 import {RegisterComponent} from './register/register.component';
 import {Routes} from '@angular/router';
 import {PasswrodrecoveryComponent} from "./passwrodrecovery/passwrodrecovery.component";
+import {CartComponent} from "./cart/cart.component";
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path : 'forgotPassword',
     component : PasswrodrecoveryComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   }
 
 ];

@@ -19,16 +19,12 @@ export class HomeComponent implements OnInit {
   paramsForSearch: PaginationParams = new PaginationParams();
   book: Book = new Book();
   closeResults: string ='';
-  row:any = [];
-  col:any = [];
-  ind:any = [];
-
-
+  cartItem :number = 0;
   constructor(private service: BookService,private modalService: NgbModal) {
   }
 
-  public cartItem : number = 0;
-   sr : number = 0;
+
+
 
 
 
@@ -41,8 +37,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllBooksWithPagination(this.name,this.params);
-    this.ind[0] = 'fg';
     this.items = new Array<any>();
+
   }
   getAllBooksWithPagination(name:string,params:any){
 
@@ -50,21 +46,19 @@ export class HomeComponent implements OnInit {
           this.params.totalItems = response.totalElements;
           this.books = response.data;
           this.cartItem = response.length;
-
+          this.cartItem = 0;
         });
-
-       for(let i = 0; i<3 ; i++){
-         this.row[i] = this.books[i];
-       }
-
-    for(let i = 0; i<5 ; i++){
-      this.col[i] = this.books[i];
-
-    }
-
       }
 
-
+   addToCart(content: any,id:any){
+     this.modalService.open(content, {ariaLabelledBy: 'modal-message'}).result.then((result) => {
+       this.closeResults = `Closed with: ${result}`;
+     }, (reason) => {
+       this.closeResults = `Dismissed ${this.getDismissReason(reason)}`;
+     });
+     this.viewBook(id);
+     this.cartItem = this.cartItem+1;
+   }
   onChangePage(page: number) {
     // update current page of items
 
@@ -83,6 +77,7 @@ export class HomeComponent implements OnInit {
     this.viewBook(id);
 
   }
+
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {

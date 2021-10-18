@@ -8,9 +8,9 @@
       <strong style="font-size: 20px;" class="fa fa-umbrella">Books.Com</strong>
       </a>
     </div>
-    <button class="btn btn-primary" >
+    <button class="btn btn-primary" routerLink="/cart">
       <i style="font-size: 30px;" class="fa fa-cart-plus"></i>
-      <div style="font-size: 10px;" class="badge bg-danger">{{cartItem}}</div>
+      <div style="font-size: 10px;" class="badge bg-danger"  >{{this.cartItem}}</div>
     </button>
   </div>
 </header>
@@ -47,7 +47,7 @@
 
         <p style="font-family: Arial;color: black">Author: {{books[0].authorDTO.authorName}}</p>
 
-        <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+        <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,books[0].id)"> Add To cart</button>
 
       </td>
 
@@ -58,7 +58,7 @@
 
         <p style="font-family: Arial;color: black">Author: {{books[1].authorDTO.authorName}}</p>
 
-        <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+        <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,books[1].id)"> Add To cart</button>
 
       </td>
 
@@ -69,7 +69,7 @@
 
         <p style="font-family: Arial;color: black">Author: {{books[2].authorDTO.authorName}}</p>
 
-        <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+        <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,books[2].id)"> Add To cart</button>
 
       </td>
 
@@ -80,7 +80,7 @@
 
         <p style="font-family: Arial;color: black">Author: {{books[3].authorDTO.authorName}}</p>
 
-        <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+        <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,books[3].id)"> Add To cart</button>
 
       </td>
       <td *ngIf=" books.length>4 && i==0"  style="width: 20%">
@@ -88,9 +88,9 @@
 
         <p style="font-family: Arial;color: black">Name: {{books[4].name}}</p>
 
-        <p style="font-family: Arial;color: black">Author: {{books[4].authorDTO.authorName}}</p>
+        <p style="font-family: Arial;color: black">Author: {{books[4].authorDTO.authorName}}
 
-        <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+          <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,books[4].id)"> Add To cart</button>
 
       </td>
     </tr>
@@ -106,8 +106,7 @@
 
       <p style="font-family: Arial;color: black">Author: {{books[0].authorDTO.authorName}}</p>
 
-      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
-
+       <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,books[0].id)"> Add To cart</button>
     </td>
 
      <td style="width: 21%">
@@ -117,8 +116,7 @@
 
       <p style="font-family: Arial;color: black">Author: {{books[1].authorDTO.authorName}}</p>
 
-      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
-
+       <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,books[1].id)"> Add To cart</button>
     </td>
 
      <td style="width: 21%">
@@ -128,7 +126,7 @@
 
       <p style="font-family: Arial;color: black">Author: {{books[2].authorDTO.authorName}}</p>
 
-      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+       <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,books[2].id)"> Add To cart</button>
 
     </td>
 
@@ -139,8 +137,7 @@
 
       <p style="font-family: Arial;color: black">Author: {{books[3].authorDTO.authorName}}</p>
 
-      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
-
+       <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,books[3].id)"> Add To cart</button>
     </td>
 
      <td style="width: 20%">
@@ -150,7 +147,7 @@
 
       <p style="font-family: Arial;color: black">Author: {{books[4].authorDTO.authorName}}</p>
 
-      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+       <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,books[4].id)"> Add To cart</button>
 
     </td>
 
@@ -166,7 +163,7 @@
 
       <p style="font-family: Arial;color: black">Author: {{books[5].authorDTO.authorName}}</p>
 
-      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+      <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,books[5].id)"> Add To cart</button>
 
     </td>
 
@@ -177,7 +174,7 @@
 
       <p style="font-family: Arial;color: black">Author: {{books[6].authorDTO.authorName}}</p>
 
-      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+      <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,books[6].id)"> Add To cart</button>
 
     </td>
 
@@ -188,7 +185,7 @@
 
       <p style="font-family: Arial;color: black">Author: {{books[7].authorDTO.authorName}}</p>
 
-      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+      <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,books[7].id)"> Add To cart</button>
 
     </td>
 
@@ -200,7 +197,7 @@
 
       <p style="font-family: Arial;color: black">Author: {{books[8].authorDTO.authorName}}</p>
 
-      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+      <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,books[8].id)"> Add To cart</button>
 
     </td>
 
@@ -212,7 +209,7 @@
 
       <p style="font-family: Arial;color: black">Author: {{books[9].authorDTO.authorName}}</p>
 
-      <a href="#" class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+        <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,books[9].id)"> Add To cart</button>
       </div>
     </td>
 
@@ -301,10 +298,32 @@
 
         <p style="font-family: Arial;color: black">Author: {{book.authorDTO.authorName}}</p>
 
-        <a  class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center"> Add To cart</a>
+        <button class="fa fa-shopping-cart btn btn-sm btn-outline-info text-center" (click)="addToCart(message,book.id)"> Add To cart</button>
       </div>
 </form>
   </div>
 
 </ng-template>
 
+<ng-template #message let-modal >
+  <div class="modal-header header">
+    <h4 class="modal-title" id="modal-message">Cart Updated</h4>
+    <button type="button" class=" btn btn-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="container">
+        <img src="/assets/images/{{book.name}}.png" class="img" for ="forImg">
+        <p style="font-family: Arial;color: black">Name: {{book.name}}</p>
+
+        <p style="font-family: Arial;color: black">Author: {{book.authorDTO.authorName}}</p>
+        <p style="font-family: Arial;color: black">Added to cart</p>
+
+        <button  class=" btn btn-sm btn-outline-info text-center" (click)="modal.dismiss('Cross click')">Okay</button>
+      </div>
+    </form>
+  </div>
+
+</ng-template>
