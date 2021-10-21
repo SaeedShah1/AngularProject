@@ -30,10 +30,11 @@ export class HomeComponent implements OnInit {
 
 
 
-   viewBook(id: any){
-      this.service.viewBook(id).subscribe(response => {
+   viewBook(id: any):Book{
+       this.service.viewBook(id).subscribe(response => {
      this.book = response;
     });
+       return this.book;
   }
 
 
@@ -47,8 +48,6 @@ export class HomeComponent implements OnInit {
         this.service.getBooksWithPagination(name, params).subscribe(response => {
           this.params.totalItems = response.totalElements;
           this.books = response.data;
-          this.cartItem = response.length;
-          this.cartItem = 0;
         });
       }
 
@@ -58,11 +57,12 @@ export class HomeComponent implements OnInit {
      }, (reason) => {
        this.closeResults = `Dismissed ${this.getDismissReason(reason)}`;
      });
-     this.viewBook(id);
+     this.book = this.viewBook(id);
      if(this.book!=null) {
        this.cartService.addtoCart(this.book);
      }
      this.cartItem = this.cartItem+1;
+
    }
   onChangePage(page: number) {
     // update current page of items

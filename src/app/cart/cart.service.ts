@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {BookService} from "../home/book.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +9,7 @@ export class CartService {
   public cartItemList : any =[];
   public productList = new BehaviorSubject<any>([]);
   public search = new BehaviorSubject<string>("");
-
-  constructor(private bookService: BookService) { }
+  constructor() { }
   getProducts(){
     return this.productList.asObservable();
   }
@@ -20,10 +18,10 @@ export class CartService {
     this.cartItemList.push(...product);
     this.productList.next(product);
   }
+
   addtoCart(product : any){
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
-    this.getTotalPrice();
     console.log(this.cartItemList)
   }
   getTotalPrice() : number{
